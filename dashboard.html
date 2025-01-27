@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin & Supplier Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <nav>
+                <a href="index.html" class="home-btn">&#8592; Home</a>
+                <a href="login.html" class="logout-btn">Logout</a>
+            </nav>
+            <h1>Dashboard</h1>
+        </div>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Welcome to the Dashboard</h2>
+            <p>Select your action:</p>
+            <div class="actions">
+                <div class="admin-section">
+                    <h3>Admin Section</h3>
+                    <button onclick="window.location.href='add_product.html'">Add New Product</button>
+                </div>
+                <div class="supplier-section">
+                    <h3>Supplier Section</h3>
+                    <button onclick="window.location.href='view_products.html'">View Products</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Coffee & Grocery House. All rights reserved.</p>
+    </footer>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #6b4f2a;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #dashboard {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #dashboard h2 {
+            margin-bottom: 1rem;
+            color: #6b4f2a;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        .actions div {
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #6b4f2a;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4a331a;
+        }
+
+        .home-btn, .logout-btn {
+            display: inline-block;
+            color: white;
+            background-color: #6b4f2a;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-btn:hover, .logout-btn:hover {
+            background-color: #4a331a;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #6b4f2a;
+            color: white;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping - Coffee & Grocery House</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Shopping Page</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="checkout.html">Check out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-list">
+                <!-- Product 1 -->
+                <div class="product">
+                    <img src="../images/coffee-1kg.png" alt="1kg Coffee" />
+                    <h3>1kg Coffee</h3>
+                    <p>Price: 50 Shekels</p>
+                    <label for="quantity-coffee">Quantity:</label>
+                    <input id="quantity-coffee" type="number" value="1" min="1">
+                    <button class="add-to-cart" data-product="coffee" data-price="50">Add to Cart</button>
+                </div>
+                <!-- Product 2 -->
+                <div class="product">
+                    <img src="../images/biscuits.jpg" alt="Biscuits" />
+                    <h3>Biscuits</h3>
+                    <p>Price: 10 Shekels</p>
+                    <label for="quantity-biscuits">Quantity:</label>
+                    <input id="quantity-biscuits" type="number" value="1" min="1">
+                    <button class="add-to-cart" data-product="biscuits" data-price="10">Add to Cart</button>
+                </div>
+                <!-- Product 3 -->
+                <div class="product">
+                    <img src="../images/cleaning-product.jpg" alt="Cleaning Product" />
+                    <h3>Cleaning Product</h3>
+                    <p>Price: 30 Shekels</p>
+                    <label for="quantity-cleaning">Quantity:</label>
+                    <input id="quantity-cleaning" type="number" value="1" min="1">
+                    <button class="add-to-cart" data-product="cleaning" data-price="30">Add to Cart</button>
+                </div>
+                <!-- Product 4 -->
+                <div class="product">
+                    <img src="../images/milk.jpeg" alt="milk" />
+                    <h3>Milk</h3>
+                    <p>Price: 7 Shekels</p>
+                    <label for="quantity-milk">Quantity:</label>
+                    <input id="quantity-milk" type="number" value="1" min="1">
+                    <button class="add-to-cart" data-product="milk" data-price="30">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Coffee & Grocery House. All rights reserved.</p>
+    </footer>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Coffee & Grocery House</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <nav>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                </div>
+                <a href="dashboard.html" class="back-btn">back</a>
+            </nav>
+            <h1>Add New Product</h1>
+        </div>
+    </header>
+    <main>
+        <section id="add-product">
+            <h2>Product Details</h2>
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="product-name">Product Name:</label>
+                    <input type="text" id="product-name" name="product-name" placeholder="Enter product name" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="product-quantity">Quantity:</label>
+                    <input type="number" id="product-quantity" name="product-quantity" placeholder="Enter available quantity" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-category">Category:</label>
+                    <select id="product-category" name="product-category" required>
+                        <option value="beverages">Beverages</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="cleaning">Cleaning Products</option>
+                        <option value="snacks">Snacks</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-image">Product Image (Optional):</label>
+                    <input type="file" id="product-image" name="product-image" accept="image/*">
+                </div>
+                
+                <button type="submit" class="submit-btn">Add Product</button>
+            </form>
+        </section>
+            <section id="show-products">
+            <h2>Previously Added Products</h2>
+            <ul id="product-list">
+                <!-- List of products will appear here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Coffee & Grocery House. All rights reserved.</p>
+    </footer>
+    <script>
+       document.getElementById('product-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get form values
+    const productName = document.getElementById('product-name').value;
+    const productPrice = parseFloat(document.getElementById('product-price').value);
+    const productQuantity = parseInt(document.getElementById('product-quantity').value);
+    const productCategory = document.getElementById('product-category').value;
+    const productImage = document.getElementById('product-image').files[0];
+
+    // Read the image as a data URL (if provided)
+    let productImageURL = null;
+    if (productImage) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            productImageURL = event.target.result;
+
+            // Save the product after reading the image
+            saveProduct(productName, productPrice, productQuantity, productCategory, productImageURL);
+        };
+        reader.readAsDataURL(productImage);
+    } else {
+        // Save the product without an image
+        saveProduct(productName, productPrice, productQuantity, productCategory, null);
+    }
+
+    // Reset the form
+    this.reset();
+});
+
+// Function to save product to localStorage and update the list
+function saveProduct(name, price, quantity, category, image) {
+    const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    storedProducts.push({
+        name,
+        price,
+        quantity,
+        category,
+        image, // Add image (null if not provided)
+    });
+    localStorage.setItem('products', JSON.stringify(storedProducts));
+
+    alert(`Product Added:\nName: ${name}\nPrice: ${price} Shekels\nQuantity: ${quantity}\nCategory: ${category}`);
+    displayProducts();
+}
+
+// Function to display products
+function displayProducts() {
+    const productList = document.getElementById('product-list');
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+
+    // Clear the current list
+    productList.innerHTML = '';
+
+    if (products.length === 0) {
+        productList.innerHTML = '<p>No products added yet.</p>';
+    } else {
+        products.forEach(product => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <strong>${product.name}</strong> - ${product.price} Shekels - ${product.quantity} pcs - Category: ${product.category}
+                ${product.image ? `<br><img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto; margin-top: 10px;">` : ''}
+            `;
+            productList.appendChild(li);
+        });
+    }
+}
+
+// Display products on page load
+document.addEventListener('DOMContentLoaded', displayProducts);
+
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #6b4f2a;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #add-product {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #add-product h2 {
+            margin-bottom: 1.5rem;
+            color: #6b4f2a;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #6b4f2a;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #4a331a;
+        }
+
+        .back-btn, .logout-btn {
+            display: inline-block;
+            color: white;
+            background-color: #6b4f2a;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover, .logout-btn:hover {
+            background-color: #4a331a;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #6b4f2a;
+            color: white;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</body>
+</html>

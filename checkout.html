@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Coffee & Grocery House</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Checkout</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shopping.html">Back to Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="checkout">
+            <h2>Complete Your Order</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address:</label>
+                    <textarea id="address" name="address" placeholder="Enter your delivery address" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">Payment Method:</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="cash-on-delivery">Cash on Delivery</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Order Notes (Optional):</label>
+                    <textarea id="notes" name="notes" placeholder="Any special instructions?" rows="2"></textarea>
+                </div>
+                <button type="submit" class="checkout-btn">Place Order</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Coffee & Grocery House. All rights reserved.</p>
+    </footer>
+    <script src="js/cart.js"></script>
+</body>
+</html>

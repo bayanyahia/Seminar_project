@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Coffee & Grocery House</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <nav>
+                <a href="index.html" class="home-btn">&#8592; Home</a>
+            </nav>
+            <h1>Admin & Supplier Login</h1>
+        </div>
+    </header>
+    <main>
+        <section id="login">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Coffee & Grocery House. All rights reserved.</p>
+    </footer>
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
+    const predefinedUsername = 'admin';
+    const predefinedPassword = '12345678';
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Prevent the default form submission
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === predefinedUsername && password === predefinedPassword) {
+            window.location.href = 'dashboard.html'; // Redirect to dashboard
+        } else {
+            alert('Invalid username or password. Please try again.');
+        }
+    });
+});
+
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #6b4f2a;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #login {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #login h2 {
+            margin-bottom: 1.5rem;
+            color: #6b4f2a;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: #6b4f2a;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #4a331a;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #6b4f2a;
+            color: white;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+    .home-btn {
+            display: inline-block;
+            color: white;
+            background-color: #6b4f2a;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #4a331a;
+        }
+
+        </style>
+</body>
+</html>
