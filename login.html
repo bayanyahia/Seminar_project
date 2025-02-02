@@ -37,8 +37,10 @@
     <script>
        document.addEventListener('DOMContentLoaded', () => {
             const loginForm = document.getElementById('login-form');
-            const predefinedUsername = 'guest@gmail.com';
-            const predefinedPassword = 'guest123';
+            const predefinedUsers = {
+                'guest@gmail.com': 'guest123',
+                'admin@gmail.com': '12345678'
+            };
 
             loginForm.addEventListener('submit', (e) => {
                 e.preventDefault(); // Prevent the default form submission
@@ -46,8 +48,12 @@
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
 
-                if (username === predefinedUsername && password === predefinedPassword) {
-                    window.location.href = 'shopping.html'; // Redirect to shopping page
+                if (predefinedUsers[username] && predefinedUsers[username] === password) {
+                    if (username === 'admin@gmail.com') {
+                        window.location.href = 'dashboard.html'; // Redirect to dashboard
+                    } else {
+                        window.location.href = 'shopping.html'; // Redirect to shopping page
+                    }
                 } else {
                     alert('Invalid email or password. Please try again.');
                 }
