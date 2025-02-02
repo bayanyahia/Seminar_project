@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Coffee & Grocery House</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .confirmation-message {
+            display: none;
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -48,11 +61,28 @@
                 </div>
                 <button type="submit" class="checkout-btn">Place Order</button>
             </form>
+            <div id="confirmation" class="confirmation-message"></div>
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Coffee & Grocery House. All rights reserved.</p>
     </footer>
-    <script src="js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutForm = document.getElementById('checkout-form');
+            const confirmationMessage = document.getElementById('confirmation');
+            
+            checkoutForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent actual form submission
+                
+                confirmationMessage.textContent = "Your order has been placed! It will be delivered in approximately 30-40 minutes.";
+                confirmationMessage.style.display = 'block';
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 5000); // Redirect to home after 5 seconds
+            });
+        });
+    </script>
 </body>
 </html>

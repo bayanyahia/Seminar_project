@@ -5,22 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .info-section {
+            background: #f8f3e9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin: 20px auto;
+            width: 80%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .info-section:hover {
+            transform: scale(1.05);
+        }
+
+        .info-section h2 {
+            color: #6b4f2a;
+            font-size: 24px;
+        }
+
+        .info-section p, .info-section ul {
+            font-size: 18px;
+            color: #3e2723;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+
+        #contact a {
+            color: #8b4513;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
             <h1>Soliman Coffee & Grocery House</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        
             <div class="cart-icon">
-                <a href="shopping.html">
-                    <img src="images/cart-icon.png" alt="Cart Icon" class="icon">
-                </a>
                 <a href="login.html">
                     <img src="images/login-icon.png" alt="Login Icon" class="icon">
                 </a>
@@ -35,11 +68,11 @@
         </div>
     </section>
     <main>
-        <section id="about">
+        <section id="about" class="info-section">
             <h2>About Us</h2>
             <p>Welcome to Coffee & Grocery House, your one-stop shop for freshly roasted coffee and everyday groceries. We are dedicated to providing high-quality products and exceptional customer service in a welcoming environment.</p>
         </section>
-        <section id="services">
+        <section id="services" class="info-section">
             <h2>Our Services</h2>
             <ul>
                 <li>Online ordering for coffee and groceries</li>
@@ -47,7 +80,7 @@
                 <li>Gift packages and subscriptions</li>
             </ul>
         </section>
-        <section id="contact">
+        <section id="contact" class="info-section">
             <h2>Contact Us</h2>
             <p>We'd love to hear from you! Visit us at our store or get in touch:</p>
             <p>Email: <a href="mailto:soliman@coffeehouse.com">soliman@coffeehouse.com</a></p>
@@ -61,3 +94,4 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
